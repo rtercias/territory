@@ -54,7 +54,7 @@
 						<div ng-hide="t.TerritoryType=='SURVEY-WALK' || h.IsDoNotCall" class="householder-seqnum">{{toChar(h.SeqNum)}}</div>
 						<div class="householder-combined-address" ng-hide="h.Territory.TerritoryType == 'PHONE' || h.Territory.TerritoryType == 'SURVEY-PHONE'">
 							<div class="householder-address">{{h.Address}} {{h.AptNum}}</div>
-							<div class="householder-city-state-zip" ng-show="addressLengthIsGood(h)">{{h.City}}, {{h.State}}</div><br />
+							<div class="householder-city-state-zip" ng-show="addressLengthIsGood(h)">{{h.City}}, {{h.State}} {{h.Zip}}</div><br />
                             <div class="householder-dnc-flag" ng-show="h.IsDoNotCall && t.TerritoryType!='SURVEY-WALK'">(DO NOT CALL)</div>
                             <div class="householder-notes" ng-hide="t.TerritoryType=='SURVEY-WALK'">{{h.Notes}}</div>
 						</div>
