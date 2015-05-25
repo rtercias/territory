@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="TerritoryManager">
+<head>
+    <title>Territory Printout</title>
+	<link href="http://fonts.googleapis.com/css?family=Lato:Lato:300,400,700,900,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=geometry"></script>
+	<link rel="stylesheet" type="text/css" media="print" href="css/print.css"/>
+	<link href="css/preview.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://code.angularjs.org/1.1.5/angular.js"></script>
+    <script src="http://code.angularjs.org/1.1.5/angular-cookies.js"></script>
+    <script src="lib/jquery.easy-list-splitter.js"></script>	
+    <script src="lib/ui-bootstrap-tpls-0.3.0.js"></script>	
+    <script src="lib/webtoolkit-base64.js"></script>
+	<script src="scripts/globals.js"></script>
+    <script src="scripts/models/User.js"></script>
+	<script src="scripts/models/Congregation.js"></script>
+    <script src="scripts/models/Householder.js"></script>
+    <script src="scripts/models/SummaryItem.js"></script>
+    <script src="scripts/models/Territory.js"></script>
+	<script src="scripts/models/State.js"></script>
+    <script src="scripts/angular/app.js"></script>
+    <script src="scripts/angular/services.js"></script>
+	<script src="scripts/angular/controllers.js"></script>
+	<script src="scripts/angular/filters.js"></script>
+	<script src="scripts/angular/directives.js"></script>
+    <script src="lib/http-auth-interceptor.js"></script>
+</head>
+<body ng-controller="MapCtrl">
+	<div class="print-page" ng-repeat="t in territories">
+        <div class="print-instructions">
+            <ul>
+                <li>Set orientation to:  Landscape</li>
+                <li>Set margin to:  0.4</li>
+            </ul>
+        </div>
+		<div class="print-header">
+			<div class="left-header controls controls-row">
+				<h3 class="cong-name span12">{{congregation.CongName}} Territory</h3>
+				<span class="pub-name span2">Publisher Name: </span><span class="pub-name-underline span6">&nbsp;</span>
+				<span class="checked-out span2">Checked Out: </span><span class="checked-out-underline span6">&nbsp;</span>
+				<span class="checked-in span2">Checked In: </span><span class="checked-in-underline span6">&nbsp;</span>
+			</div>
+			<div class="right-header">
+				<h3 class="terr-name span3">{{t.TerritoryName}}</h3>
+			</div>
+		</div>
+		<hr />
+		<div class="print-list">	
+            <div class="do-not-call-subtitle" ng-show="t.TerritoryType=='SURVEY-WALK'">Do not call on the following addresses:</div>
+			<ul class="column-one" ng-split-column="2">
+				<li class="householder row" ng-class="{ 'do-not-call': h.IsDoNotCall,'survey-do-not-call': t.TerritoryType=='SURVEY-WALK' }" ng-model="householder" ng-repeat="h in t.householders">			
+					<div class="">
+						<div ng-hide="t.TerritoryType=='SURVEY-WALK' || h.IsDoNotCall" class="householder-seqnum">{{toChar(h.SeqNum)}}</div>
+						<div class="householder-combined-address" ng-hide="h.Territory.TerritoryType == 'PHONE' || h.Territory.TerritoryType == 'SURVEY-PHONE'">
+							<div class="householder-address">{{h.Address}} {{h.AptNum}}</div>
+							<div class="householder-city-state-zip" ng-show="addressLengthIsGood(h)">{{h.City}}, {{h.State}}</div><br />
+                            <div class="householder-dnc-flag" ng-show="h.IsDoNotCall && t.TerritoryType!='SURVEY-WALK'">(DO NOT CALL)</div>
+                            <div class="householder-notes" ng-hide="t.TerritoryType=='SURVEY-WALK'">{{h.Notes}}</div>
+						</div>
+                        <div class="householder-telephone" ng-hide="h.Territory.TerritoryType == 'PHONE'">
+							<div class="householder-phone">{{h.PhoneNum}}</div>
+					</div>
+					<div class="clear"></div>
+					<div ng-hide="t.TerritoryType=='SURVEY-WALK' || h.IsDoNotCall" class="'visits-container">
+						<div class="visits"></div>
+						<div class="visits"></div>
+						<div class="visits"></div>
+					</div>
+                    <div class="clear"></div>
+				</li>
+			</ul>
+		</div>
+		<div class="map-container">
+			<img class="map-image" ng-src="{{t.mapUrl}}" alt="map"/>
+			<div class="print-footer">
+				<p class="'instructions">For additions and updates, or if you find a discrepancy in our records, please make a note of it 
+					on the side or back of this page. 
+				</p>
+				<p class="'instructions">Please include the householder's name, address, city, state, and zip code whenever possible. 
+					The territory servant will check our database of addresses to determine whether these are existing or new addresses.
+				</p>
+                <div class="date-stamp">Printed on {{dateStamp}}</div>
+			</div>
+		</div>
+        <hr class="page-bottom" />
+	</div>
+</body>
+</html>

@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2EEA512D-41BF-41A6-8C91-F6B3CAFBAA72}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Territory</RootNamespace>
+    <AssemblyName>Territory</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap-responsive.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\editor.css" />
+    <None Include="css\variables.less" />
+    <Content Include="css\jquery-overrides.css" />
+    <Content Include="css\preview.css" />
+    <Content Include="css\print.css" />
+    <Content Include="img\animated-overlay.gif" />
+    <Content Include="img\arrow-down.png" />
+    <Content Include="img\arrow-up.png" />
+    <Content Include="img\favicon.ico" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\glyphicons.png" />
+    <Content Include="img\m1.png" />
+    <Content Include="img\m2.png" />
+    <Content Include="img\m3.png" />
+    <Content Include="img\search.png" />
+    <Content Include="index.html" />
+    <Content Include="less\tests\buttons.html" />
+    <Content Include="less\tests\css-tests.css" />
+    <Content Include="less\tests\css-tests.html" />
+    <Content Include="less\tests\forms-responsive.html" />
+    <Content Include="less\tests\forms.html" />
+    <Content Include="less\tests\navbar-fixed-top.html" />
+    <Content Include="less\tests\navbar-static-top.html" />
+    <Content Include="less\tests\navbar.html" />
+    <Content Include="lib\angular\angular-cookies.js" />
+    <Content Include="lib\angular\angular-cookies.min.js" />
+    <Content Include="lib\angular\angular-loader.js" />
+    <Content Include="lib\angular\angular-loader.min.js" />
+    <Content Include="lib\angular\angular-resource.js" />
+    <Content Include="lib\angular\angular-resource.min.js" />
+    <Content Include="lib\angular\angular-sanitize.js" />
+    <Content Include="lib\angular\angular-sanitize.min.js" />
+    <Content Include="lib\angular\angular.js" />
+    <Content Include="lib\angular\angular.min.js" />
+    <Content Include="lib\angular\jquery-mobile-angular-adapter-standalone.min.js" />
+    <Content Include="lib\angular\version.txt" />
+    <Content Include="lib\enquire.min.js" />
+    <Content Include="lib\gmap3.min.js" />
+    <Content Include="lib\http-auth-interceptor.js" />
+    <Content Include="lib\jquery.columnizer.js" />
+    <Content Include="lib\jquery.easy-list-splitter.js" />
+    <Content Include="lib\maplabel-compiled.js" />
+    <Content Include="lib\polygon-ext.js" />
+    <Content Include="lib\richmarker-compiled.js" />
+    <Content Include="lib\ui-bootstrap-tpls-0.3.0.js" />
+    <Content Include="lib\webtoolkit-base64.js" />
+    <Content Include="map.html" />
+    <Content Include="mobile.html" />
+    <Content Include="scripts\angular\app.js" />
+    <Content Include="scripts\angular\directives.js" />
+    <Content Include="scripts\angular\filters.js" />
+    <Content Include="scripts\angular\services.js" />
+    <Content Include="scripts\asyncEach.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\angular\controllers.js" />
+    <Content Include="lib\BpTspSolver.js" />
+    <Content Include="scripts\controllers\accounts-ctrl.js" />
+    <Content Include="scripts\controllers\householder-detail-ctrl.js" />
+    <Content Include="scripts\controllers\householders-list-ctrl.js" />
+    <Content Include="scripts\controllers\main-ctrl.js" />
+    <Content Include="scripts\controllers\map-ctrl.js" />
+    <Content Include="scripts\controllers\reports-ctrl.js" />
+    <Content Include="scripts\controllers\territory-detail-ctrl.js" />
+    <Content Include="scripts\models\Congregation.js" />
+    <Content Include="scripts\models\User.js" />
+    <Content Include="scripts\models\SummaryItem.js" />
+    <Content Include="scripts\print-settings.js" />
+    <Content Include="scripts\globals.js" />
+    <Content Include="scripts\less.min.js" />
+    <Content Include="scripts\models\StateArray.js" />
+    <Content Include="scripts\models\Householder.js" />
+    <Content Include="scripts\models\HouseholderArray.js" />
+    <Content Include="scripts\models\Search.js" />
+    <Content Include="scripts\models\State.js" />
+    <Content Include="scripts\models\Territory.js" />
+    <Content Include="scripts\models\TerritoryArray.js" />
+    <Content Include="scripts\tests\territoryTests.js" />
+    <Content Include="scripts\ui-settings.js" />
+    <Content Include="scripts\unitTests.js" />
+    <Content Include="scripts\_references.js" />
+    <Content Include="printout.html" />
+    <Content Include="templates\confirm-dialog.html" />
+    <Content Include="templates\congregation-detail.html" />
+    <Content Include="templates\survey-instructions.html" />
+    <Content Include="templates\search.html" />
+    <Content Include="templates\user-detail.html" />
+    <Content Include="templates\users-list.html" />
+    <Content Include="templates\settings.html" />
+    <Content Include="templates\register.html" />
+    <Content Include="templates\dnc.html" />
+    <Content Include="templates\householder-detail.html" />
+    <Content Include="templates\summary.html" />
+    <Content Include="templates\territory-detail.html" />
+    <Content Include="templates\householder-list.html" />
+    <Content Include="templates\welcome.html" />
+    <Content Include="UnitTests.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="less\accordion.less" />
+    <Content Include="less\alerts.less" />
+    <Content Include="less\bootstrap.less" />
+    <Content Include="less\breadcrumbs.less" />
+    <Content Include="less\button-groups.less" />
+    <Content Include="less\buttons.less" />
+    <Content Include="less\carousel.less" />
+    <Content Include="less\close.less" />
+    <Content Include="less\code.less" />
+    <Content Include="less\component-animations.less" />
+    <Content Include="less\dropdowns.less" />
+    <Content Include="less\forms.less" />
+    <Content Include="less\grid.less" />
+    <Content Include="less\hero-unit.less" />
+    <Content Include="less\labels-badges.less" />
+    <Content Include="less\layouts.less" />
+    <Content Include="less\media.less" />
+    <Content Include="less\mixins.less" />
+    <Content Include="less\modals.less" />
+    <Content Include="less\navbar.less" />
+    <Content Include="less\navs.less" />
+    <Content Include="less\pager.less" />
+    <Content Include="less\pagination.less" />
+    <Content Include="less\popovers.less" />
+    <Content Include="less\progress-bars.less" />
+    <Content Include="less\reset.less" />
+    <Content Include="less\responsive-1200px-min.less" />
+    <Content Include="less\responsive-767px-max.less" />
+    <Content Include="less\responsive-768px-979px.less" />
+    <Content Include="less\responsive-navbar.less" />
+    <Content Include="less\responsive-utilities.less" />
+    <Content Include="less\responsive.less" />
+    <Content Include="less\scaffolding.less" />
+    <Content Include="less\sprites.less" />
+    <Content Include="less\tables.less" />
+    <Content Include="less\thumbnails.less" />
+    <Content Include="less\tooltip.less" />
+    <Content Include="less\type.less" />
+    <Content Include="less\utilities.less" />
+    <Content Include="less\variables.less" />
+    <Content Include="less\wells.less" />
+    <Content Include="css\editor.less" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\localhost.pubxml" />
+    <None Include="Properties\PublishProfiles\rytersoft.com - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\rytersoft.com - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\rytersoft.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Web Deploy - Territory.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53724</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:81</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,6 @@
+﻿.ui-btn-hidden { width: auto; }
+.ui-body-c header .ui-link,
+.ui-body-c header .ui-link:visited,
+.ui-body-c header .ui-link:hover, .ui-body-c .ui-link:hover { color: #fff; }
+.ui-body-c, .ui-overlay-c { text-shadow: none; }
+.unstyled { border: none !important; background: none !important; margin: initial; padding: initial; }

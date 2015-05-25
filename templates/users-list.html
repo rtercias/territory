@@ -1,0 +1,19 @@
+﻿<div class="detail users listview-container">
+	<h4>{{congregation.CongName}} Users List</h4>
+	<ul data-role="listview" apply-jq-mobile>
+		<li class="user row" ng-model="user" ng-repeat="user in users" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">	
+            <span class="title truncate">
+				<span class="username">{{user.UserName}}</span><br />
+                <span class="label" ng-class="{'label-success': user.Status=='Active','label-important': user.Status!='Active'}">{{user.Status}}</span>
+			</span>
+            <span class="user-buttons pull-right">
+                <span class="read-write btn btn-info" tooltip="Can Read/Write" ng-show="isPowerUser(user) || isAdmin(user)"><i class="icon-edit"></i></span>
+                <span class="read-only btn btn-warning" tooltip="Can Read Only" ng-show="isUser(user)"><i class="icon-check-empty"></i></span>
+                <span class="unlock btn btn-success" tooltip="Unlock" ng-show="user.Status=='Locked'" ng-click="unlockUser(user)"><i class="icon-unlock"></i></span>
+                <span class="activate btn btn-success" tooltip="Activate" ng-show="user.Status=='Pending' || user.Status=='Inactive'"><i class="icon-check-sign"></i></span>
+                <span class="remove btn btn-danger" tooltip="Delete" ng-show="user.Status=='Active' || user.Status=='Pending'"><i class="icon-trash"></i></span>
+            </span>	
+		</li>		
+	</ul>
+	<a class="done btn btn-block" href="/settings">Done</a>
+</div>

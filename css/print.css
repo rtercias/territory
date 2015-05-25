@@ -1,0 +1,8 @@
+﻿html, body { width: 1070px; height:786px !important; margin: 0; background-color: #fff; }
+	/*body * { border: solid 1px; }	/*use this line to debug print styling*/
+/*.print-header { margin: 20px 0 10px 0; }*/
+.print-header:nth-child(2n) { margin: 0 0 0 0; }
+.print-page { background: #fff; margin: 0; padding: 0; }
+.map-image { }
+hr.page-bottom { display: none; }
+.print-instructions { display: none; visibility: hidden; }

@@ -1,0 +1,16 @@
+﻿<div class="report-summary">
+	<h4>Search Results</h4>
+	<hr />
+	<div class="report-container" ng-repeat="h in searchedHouseholders">
+		<a href="/{{h.TerritoryId}}">
+            <span class="name">{{h.FirstName}} {{h.LastName}}</span>
+		    <address>
+                <span class="complex">{{h.ApartmentComplex}}</span>
+			    <span class="address">{{h.Address}} {{h.AptNum}}  {{h.City}}, {{h.State}} {{h.Zip}}</span><br />
+			    <span class="notes">{{h.Notes}}</span>
+		    </address>
+        </a>
+	</div>
+	<hr />
+	<a class="done btn btn-block" href="/">Done</a>
+</div>

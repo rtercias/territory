@@ -1,0 +1,19 @@
+﻿<div class="detail detail-settings">	
+	<h4>User Settings</h4>
+	<hr />
+	<ul class="nav nav-tabs nav-stacked">
+		<li><a href="register">Account Profile</a></li>
+		<li ng-hide="user.LoggedIn && user.Status=='Pending'"><a href="cong"">Congregation Info</a></li>
+		<li ng-hide="user.LoggedIn && user.Status=='Pending'" class="nav-header"><hr />Admin</li>
+		<li ng-hide="user.LoggedIn && user.Status=='Pending'"><a href="users">Users</a></li>
+		<li ng-hide="user.LoggedIn && user.Status=='Pending'" class="nav-header"><hr />Master</li>
+		<li ng-hide="user.LoggedIn && user.Status=='Pending'">
+			<span>Switch Congregations</span><br />
+			<select class="switch-cong span" required ng-model="user.CongId" ng-options="c.Id as c.CongName for c in congregations">
+				<option value="">Congregation</option>
+			</select>
+		</li>
+	</ul>
+	<hr />
+	<a class="btn btn-block" href="/">Done</a>
+</div>

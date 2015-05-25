@@ -1,0 +1,34 @@
+﻿<div class="detail user-detail">
+	<form>
+		<fieldset>
+			<legend class="title">{{user.UserName}}</legend>
+			<hr class="narrow-top"/>
+			<div class="controls controls-row">
+				<div class="reset-password btn btn-danger">Reset Password</div>
+				<input class="householder-detail-address2 span2" type="text" placeholder="Apt Num" ng-model="householder.AptNum" />
+				<input class="householder-detail-apt-complex span4" ng-show="isActiveUser" type="text" placeholder="Apartment Complex" ng-model="householder.ApartmentComplex" />
+			</div>
+			<div class="controls controls-row">
+				<input class="householder-detail-city span7" type="text"  placeholder="City" ng-model="householder.City" />
+				<select class="householder-detail-state span3" ng-model="householder.State" ng-options="s for s in states">
+					<option value="">State</option>
+				</select>
+				<input class="householder-detail-zip span2" type="text" placeholder="Zip" ng-model="householder.Zip" />
+			</div>
+			<div class="controls controls-row" ng-show="isActiveUser">
+				<input class="householder-detail-firstname span4" type="text" placeholder="First Name" ng-model="householder.FirstName" />
+				<input class="householder-detail-lastname span4" type="text" placeholder="Last Name" ng-model="householder.LastName" />
+				<input class="householder-detail-telephone span4" type="text" placeholder="Telephone" ng-model="householder.Telephone" />
+			</div>
+			<div class="controls controls-row" ng-show="isActiveUser">
+				<textarea class="householder-detail-notes span12" placeholder="Notes" ng-model="householder.Notes" ></textarea>
+			</div>
+			<hr />
+			<div class="controls">
+				<a class="btn-cancel btn btn-block span6" href="/">Cancel</a>
+				<button class="btn-save btn btn-primary span6">Save</button>
+			</div>
+	
+		</fieldset>
+	</form>
+</div>

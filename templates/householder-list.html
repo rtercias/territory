@@ -1,0 +1,41 @@
+﻿<div class="householder-header row" data-role="header">
+	<div class="search-container span7">
+		<input type="text" class="search-text span10" ng-model="searchText" ng-show="user.LoggedIn && user.Status != 'Pending'" />
+		<a href="/search/{{searchText}}" ng-show="user.LoggedIn && user.Status != 'Pending'"><span class="search-btn pull-right span2"></span></a>
+	</div>
+	<a class="span5" href="addhouseholder"><span class="add-householder btn btn-warning pull-right"><i class="icon-plus icon-white"></i> New Address</span></a>
+</div>
+<div class="householders-list">	
+	<ul data-role="listview" apply-jq-mobile ng-hide="showWelcome">
+		<li class="householder row" ng-click="selectHouseholder(h)" ng-repeat="h in householders" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">			
+			<a class="householder-edit" href="edithouseholder/{{h.Id}}">
+				<div class="householder-title row-fluid" data-id="{{h.Id}}">
+					<div class="title span12 truncate">
+						<span class="householder-sequence badge badge-inverse">{{pad(h.SeqNum, 2)}}</span>
+						<span class="householder-title-address">{{h.Address}} {{h.AptNum}},</span>
+						<span class="householder-city-state-zip">{{h.City}} {{h.State}} {{h.Zip}}</span>
+					</div>
+				</div>
+			</a>
+			<div class="householder-buttons">
+				<button data-role="none" class="btn householder-move-up" ng-click="selectHouseholder(h); moveUp(h)" title="move up"><i class="icon-arrow-up"></i></button>
+				<button data-role="none" class="btn householder-move-down" ng-click="selectHouseholder(h); moveDown(h)" title="move down"><i class="icon-arrow-down"></i></button>
+				<button data-role="none" ng-class="{'btn householder-unlocked': !h.IsLocked, 'btn householder-locked': h.IsLocked}" ng-click="selectHouseholder(h); setLock(h)" title="{{lockedTooltip(h.IsLocked)}}"><i ng-class="{'icon-unlock': !h.IsLocked, 'icon-lock': h.IsLocked}"></i></button>
+                <!--
+                <button data-role="none" class="btn householder-delete" ng-click="selectHouseholder(h); removeHouseholder(h)" title="remove"><i class="icon-trash"></i></button>
+                <button data-role="none" ng-class="{'btn householder-do-not-call': !h.IsDoNotCall, 'btn householder-allow-to-call': h.IsDoNotCall}" ng-click="selectHouseholder(h); setCallStatus(h)" title="{{doNotCallTooltip(h.IsDoNotCall)}}"><i class="icon-ban-circle"></i></button>
+                <button data-role="none" class="btn householder-geocode" ng-click="selectHouseholder(h); geoCode(h)" title="refresh location (geocode)"><i class="icon-map-marker"></i></button>
+                -->
+			</div>
+			<!--<span class="householder-message {{h.MessageType}}" ng-hide="{{h.Message != ''}}">{{h.Message}}</span>-->
+		</li>
+	</ul>
+    <hr/>
+	<div ng-show="showWelcome">
+		<div ng-include src="template.url"></div>
+	</div>
+	<!--<div class="bottom-buttons">
+		<a class="btn-print btn btn-success" href="printout.html?terrId=7" target="_blank"><i class="icon-print icon-white"></i> Print</a>
+		<span class="btn-optimize btn btn-danger""><i class="icon-road icon-white"></i> Optimize</span>
+	</div>-->
+</div>	

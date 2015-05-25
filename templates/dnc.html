@@ -1,0 +1,15 @@
+﻿<div class="report-summary">
+	<h4>Do Not Calls</h4>
+	<hr />
+	<div class="report-container" ng-repeat="d in doNotCalls">
+		<span class="name">{{d.FirstName}} {{d.LastName}}</span>
+		<address>
+            <span class="complex">{{d.ApartmentComplex}}</span>
+			<span class="address">{{d.Address}} {{d.AptNum}}  {{d.City}}, {{d.State}} {{d.Zip}}</span><br />
+			<span class="notes">{{d.Notes}}</span>
+            <span class="territory-name">{{d.TerritoryName}}</span>
+		</address>
+	</div>
+	<hr />
+	<a class="done btn btn-block" href="/">Done</a>
+</div>

@@ -1,0 +1,50 @@
+﻿<div class="detail register-detail">
+	<form name="form" novalidate ng-show="!showRegistrationText">
+		<fieldset>
+			<legend>
+				<span ng-show="!user.LoggedIn">Register</span>
+				<span ng-show="user.LoggedIn">Account Profile</span>
+			</legend>
+			<div class="controls">
+				<input class="username span" required type="text" placeholder="User Name" ng-model="user.UserName" ng-disabled="user.LoggedIn" />
+			</div>
+			<div class="controls">
+				<input class="password span" required type="password" placeholder="Password" ng-model="user.Password" />
+			</div>
+			<div class="controls">
+				<select class="congregation span" required ng-model="congId" ng-options="c.Id as c.CongName for c in congregations">
+					<option value="">Congregation</option>
+				</select>
+			</div>
+			<hr />
+			<div class="controls" ng-show="!user.LoggedIn">
+				<input type="checkbox" ng-model="user.Agree" id="userAgree" required /><label for="userAgree">I agree</label>
+        	</div>
+			<div class="controls row" ng-show="!user.LoggedIn">
+				<a class="cancel btn span6" href="/">Cancel</a>
+				<div class="register btn btn-primary span6" ng-click="register()" ng-disabled="form.$invalid || isUnchanged(user)">Register</div>
+			</div>
+			<div class="controls row" ng-show="user.LoggedIn">
+				<a class="cancel btn span6" href="/settings">Cancel</a>
+				<button type="button" class="account-save btn btn-primary span6" ng-click="save()" ng-disabled="form.$invalid || isUnchanged(user)">Save</button>
+			</div>
+		</fieldset>
+	</form>
+	<hr />
+	<div class="message alert alert-error" ng-show="!user.Agree && !user.LoggedIn">Please agree and sign.</div>
+	<!--<alert class="message" ng-repeat="message in messages" type="message.type" close="closeMessage($index)">{{message.text}}</alert>-->
+		
+	<div ng-show="showRegistrationText">
+		<h3>Thank you for registering.</h3>
+		<hr />
+		<p>
+			You may use the general features of this website, including plotting and optimizing addresses. 
+			However, we still need to verify your identity before we allow you to view, and possibly edit, 
+			the private features of this app.
+		</p>
+		<p>
+			In the meantime, please take the time to get familiar with the available features.
+			We will get back to you as soon as possible.
+		</p>
+	</div>
+</div>

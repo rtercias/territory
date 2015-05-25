@@ -1,0 +1,18 @@
+﻿<div class="detail congregation">
+		<form name="form" class="css-form" novalidate>
+		<fieldset>
+			<legend>Congregation Info</legend>
+			<div class="controls">
+				<input class="cong-name span" required type="text" placeholder="Congregation Name" ng-model="congregation.CongName" />
+			</div>
+			<div class="controls">
+				<input class="cong-address span" required type="text" placeholder="Address" ng-model="congregation.Address" />
+			</div>
+			<hr />
+			<div class="controls">
+				<a class="cancel btn span6" href="/settings">Cancel</a>
+				<button type="button" class="cong-save btn btn-primary span6" ng-click="save()" ng-disabled="form.$invalid || isUnchanged(congregation)">Save</button>
+			</div>
+		</fieldset>
+	</form>
+</div>

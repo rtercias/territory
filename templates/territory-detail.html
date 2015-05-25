@@ -1,0 +1,18 @@
+﻿<div class="detail territory-detail">
+	<form>
+		<fieldset>
+			<legend>{{territory.Id==0 | iif : "Add New" : "Edit"}} Territory ({{territory.TerritoryName}})</legend>
+			<div class="controls controls-row">
+				<input class="territory-detail-name span7" type="text" placeholder="Territory Name" ng-model="territory.TerritoryName" />
+                <select id="territory-detail-territory-type" class="territory-detail-territory-type span5" ng-model="territory.TerritoryType" ng-options="t for t in territoryTypes">
+					<option value="">Territory Type</option>
+				</select>
+            </div>
+			<hr />
+			<div class="controls">
+				<a class="btn-cancel btn span6" ng-click="cancel()">Cancel</a>
+				<div class="btn-save btn btn-primary span6" ng-click="saveTerritory()">Save</div>
+			</div>
+		</fieldset>
+	</form>
+</div>

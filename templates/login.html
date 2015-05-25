@@ -1,0 +1,18 @@
+﻿<div class="detail log-in">
+	<form>
+		<fieldset>
+			<legend>Log In</legend>
+			<div class="controls">
+				<input class="username" type="text" placeholder="User Name" ng-model="user.UserName" />
+			</div>
+			<div class="controls">
+				<input class="password" type="password" placeholder="Password" ng-model="user.Password" />
+			</div>
+			<div class="controls">
+				<a class="btn-login btn btn-primary">Login</a>
+				<a class="btn-cancel btn btn-inverse" href="/">Cancel</a>
+			</div>
+		</fieldset>
+	</form>
+	<alert class="message" ng-repeat="message in messages" type="message.type" close="closeMessage($index)">{{message.text}}</alert>
+</div>

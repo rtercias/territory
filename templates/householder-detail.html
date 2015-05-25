@@ -1,0 +1,62 @@
+﻿<div class="detail householder-detail">
+	<form>
+		<fieldset>
+			<legend class="title">{{householder.Id==0 | iif : "Add New Address" : "Edit Address"}}
+                <span class="pull-right" ng-show="user.LoggedIn && user.Status != 'Pending'">
+                    <span data-role="none" class="btn householder-delete" ng-click="removeHouseholder()" title="delete"><i class="icon-trash"></i></span>
+                    <span data-role="none" ng-class="{'btn householder-do-not-call': !householder.IsDoNotCall, 'btn householder-allow-to-call': householder.IsDoNotCall}" ng-click="setCallStatus();" title="{{doNotCallTooltip()}}"><i class="icon-ban-circle"></i></span>
+                    <span data-role="none" class="btn householder-geocode" ng-click="geoCode(h)" title="refresh location (geocode)"><i class="icon-map-marker"></i></span>
+                </span>
+                <span><h6 class="subtitle" ng-hide="householder.Id==0">{{householder.Address}} {{householder.AptNum}} {{householder.City}}, {{householder.State}} {{householder.Zip}}</h6></span>
+			</legend>
+			<div class="controls">
+				<div class="suggest-territories-container span12" ng-show="isActiveUser">
+					<a class="suggest-territories" ng-hide="suggestedTerritoriesShown" ng-click="suggestTerritories()">Show me suggested territories only</a>
+					<a class="suggest-territories" ng-show="suggestedTerritoriesShown" ng-click="getAllTerritories()">Show me all territories</a>
+					<a class="suggest-help icon-question-sign"></a>
+			</div>			
+			<div class="controls controls-row" ng-show="isActiveUser">
+				<div class="span6 spacer"></div>
+				<select id="householder-detail-territory" class="householder-detail-territory span6" ng-hide="suggestedTerritoriesShown" ng-model="householder.TerritoryId" ng-options="t.Id as t.TerritoryName for t in territoryOptions">
+					<option value="">Assigned Territory</option>
+				</select>
+                <select id="Select1" class="householder-detail-territory span6" ng-show="suggestedTerritoriesShown" ng-model="householder.TerritoryId" ng-options="t.Id as t.TerritoryName + ' (' + t.HouseholderCount + ' Addresses)' for t in territoryOptions">
+					<option value="">Suggested Territories</option>
+				</select>
+			</div>
+			<!--<hr class="narrow-top"/>-->
+			<div class="controls controls-row">
+				<input class="householder-detail-address1 span8" type="text" placeholder="Address" ng-model="householder.Address" />
+				<input class="householder-detail-address2 span4" type="text" placeholder="Apt Num" ng-model="householder.AptNum" />
+			</div>
+            <div class="controls control-row">
+                <input class="householder-detail-apt-complex span5" ng-show="isActiveUser" type="text" placeholder="Apartment Complex" ng-model="householder.ApartmentComplex" />
+                <input class="householder-detail-city span7" type="text"  placeholder="City" ng-model="householder.City" />
+            </div>
+			<div class="controls controls-row">
+				<select class="householder-detail-state span4" ng-model="householder.State" ng-options="s for s in states" >
+					<option value="">State</option>
+				</select>
+				<input class="householder-detail-zip span3" type="text" placeholder="Zip" ng-model="householder.Zip" />
+                <select class="householder-detail-country span5" ng-model="householder.Country" ng-options="c for c in countries">
+					<option value="">Country</option>
+				</select>
+			</div>
+			<div class="controls controls-row" ng-show="isActiveUser">
+				<input class="householder-detail-firstname span4" type="text" placeholder="First Name" ng-model="householder.FirstName" />
+				<input class="householder-detail-lastname span4" type="text" placeholder="Last Name" ng-model="householder.LastName" />
+				<input class="householder-detail-telephone span4" type="text" placeholder="Telephone" ng-model="householder.Telephone" />
+			</div>
+			<div class="controls controls-row" ng-show="isActiveUser">
+				<textarea class="householder-detail-notes span12" placeholder="Notes" ng-model="householder.Notes" ></textarea>
+			</div>
+			<!--<hr class="narrow-top"/>-->
+			<div class="controls">
+				<a class="btn-cancel btn btn-block span6" href="/" ng-click="cancel()">Cancel</a>
+				<div class="btn-save btn btn-primary span6" ng-click="saveHouseholder()">Save</div>
+			</div>
+	
+		</fieldset>
+	</form>
+    <div class="do-not-call-label" ng-show="householder.IsDoNotCall">DO NOT CALL</div>
+</div>
